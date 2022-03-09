@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 
-const BASE_DATE = 1646000000000; // Mon Feb 28 2022 01:43:20 GMT+0330 (Iran Standard Time)
+const BASE_DATE = 1600000000000; // Sun Sep 13 2020 16:56:40 GMT+0430 (Iran Standard Time)
 
 /**
  * creates a dummy date based on the ID
