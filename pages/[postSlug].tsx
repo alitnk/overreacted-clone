@@ -1,19 +1,37 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 import Link from "next/link";
-import { getAllPosts } from "../lib/post-fetcher";
-import type { ModifiedPost } from "../types/post";
+import { DarkModeToggle } from "../components/DarkModeToggle/DarkModeToggle";
+import { getAllPostsForPostPage } from "../lib/post-fetcher";
+import type { IFullPost } from "../types/post";
 
 export interface PostPageProps {
-  post: ModifiedPost;
+  post: IFullPost;
 }
 
 const PostPage: NextPage<PostPageProps> = ({ post }) => {
   return (
     <div>
-      <Link href="/">Home</Link>
-      <h1>{post.title}</h1>
-      <div>{post.date}</div>
-      <p>{post.body}</p>
+      <Head>
+        <title>{post.title}</title>
+        <meta name="description" content={post.summary} />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <main className="max-w-xl mx-auto mt-12">
+        <div className="flex justify-between items-center">
+          <h1 className="font-black text-2xl text-pink-200">
+            <Link href="/">Overreacted</Link>
+          </h1>
+          <DarkModeToggle />
+        </div>
+
+        <div className="mt-14">
+          <h1 className="text-5xl font-black">{post.title}</h1>
+          <div className="mt-4 text-xs">{post.date}</div>
+          <p className="mt-8">{post.body}</p>
+        </div>
+      </main>
     </div>
   );
 };
@@ -21,7 +39,7 @@ const PostPage: NextPage<PostPageProps> = ({ post }) => {
 export default PostPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getAllPosts();
+  const posts = await getAllPostsForPostPage();
   return {
     fallback: false,
     paths: posts.map((post) => ({ params: { postSlug: post.slug } })),
@@ -35,7 +53,7 @@ export const getStaticProps: GetStaticProps<PostPageProps> = async ({
   if (typeof postSlug !== "string") {
     return { notFound: true };
   }
-  const posts = await getAllPosts();
+  const posts = await getAllPostsForPostPage();
   const post = posts.find((post) => post.slug === postSlug);
   if (!post) {
     return { notFound: true };
