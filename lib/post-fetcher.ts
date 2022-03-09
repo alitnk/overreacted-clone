@@ -6,12 +6,18 @@ import { slugify } from "./slugify";
 
 const POSTS_API = "https://jsonplaceholder.typicode.com/posts";
 
+/**
+ * gets all the posts from the API (note that this code only runs on the next.js server)
+ */
 export const getAllPosts = async () => {
   const response = await fetch(POSTS_API);
   const posts = (await response.json()) as IPost[];
   return posts;
 };
 
+/**
+ * gets all the posts and modifies them for the home page
+ */
 export const getAllPostsForHomePage = async (): Promise<IPostPreview[]> => {
   const posts = await getAllPosts();
   return posts.map((post) => ({
@@ -26,6 +32,9 @@ export const getAllPostsForHomePage = async (): Promise<IPostPreview[]> => {
   }));
 };
 
+/**
+ * gets all the posts and modifies them for the post page
+ */
 export const getAllPostsForPostPage = async (): Promise<IFullPost[]> => {
   const posts = await getAllPosts();
   return posts.map((post) => ({

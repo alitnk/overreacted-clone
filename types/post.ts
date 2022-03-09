@@ -1,5 +1,8 @@
 import type { IReadTime } from "./read-time";
 
+/**
+ * unmodified post retrieved from the API
+ */
 export interface IPost {
   userId: number;
   id: number;
@@ -7,6 +10,9 @@ export interface IPost {
   body: string;
 }
 
+/**
+ * for post page
+ */
 export interface IFullPost extends IPost {
   slug: string;
   date: string; // can't use Date since the value gets serialized
@@ -15,4 +21,7 @@ export interface IFullPost extends IPost {
   summary: string;
 }
 
+/**
+ * for home page
+ */
 export interface IPostPreview extends Omit<IFullPost, "body"> {}
