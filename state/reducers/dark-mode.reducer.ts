@@ -2,8 +2,8 @@ import { createAction, createReducer } from "@reduxjs/toolkit";
 
 const initialState = { isOn: false };
 
-export const toggleAction = createAction("toggle");
-export const setDarkModeAction = createAction<boolean>("set-dark-mode");
+export const toggleAction = createAction("TOGGLE");
+export const setDarkModeAction = createAction<boolean>("SET_DARK_MODE");
 
 export const darkModeReducer = createReducer(initialState, (builder) => {
   builder.addCase(toggleAction, (state) => {

@@ -10,6 +10,8 @@ import { RootState } from "../../state/store";
 import { Moon } from "./Moon";
 import { Sun } from "./Sun";
 
+export const DARK_MODE_LOCAL_STORAGE_KEY = "darkMode";
+
 export const DarkModeToggle = () => {
   const isDarkModeOn = useSelector((state: RootState) => state.darkMode.isOn);
   const dispatch = useDispatch();
@@ -19,14 +21,18 @@ export const DarkModeToggle = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    const darkMode = localStorage.getItem("darkMode") === "true";
+    const darkMode =
+      localStorage.getItem(DARK_MODE_LOCAL_STORAGE_KEY) === "true";
     if (darkMode) dispatch(setDarkModeAction(true));
   }, [dispatch]);
 
   useEffect(() => {
     if (isDarkModeOn) document.documentElement.classList.add("dark");
     else document.documentElement.classList.remove("dark");
-    localStorage.setItem("darkMode", JSON.stringify(isDarkModeOn));
+    localStorage.setItem(
+      DARK_MODE_LOCAL_STORAGE_KEY,
+      JSON.stringify(isDarkModeOn)
+    );
   }, [isDarkModeOn]);
 
   return (
