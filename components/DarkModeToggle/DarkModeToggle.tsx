@@ -6,7 +6,7 @@ import {
   setDarkMode,
   toggleDarkMode,
 } from "../../redux/slices/dark-mode.slice";
-import { RootState } from "../../redux/store";
+import type { RootState } from "../../redux/store";
 import { Moon } from "./Moon";
 import { Sun } from "./Sun";
 
