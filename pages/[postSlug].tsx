@@ -28,7 +28,12 @@ const PostPage: NextPage<PostPageProps> = ({ post }) => {
 
         <div className="mt-14">
           <h1 className="text-5xl font-black">{post.title}</h1>
-          <div className="mt-4 text-xs">{post.date}</div>
+          <div className="mt-4">
+            <small className="block text-xs">
+              {post.date} • {Array(post.readTime.degree).fill("☕️").join("")}{" "}
+              {post.readTime.mins} min read
+            </small>
+          </div>
           <p className="mt-8">{post.body}</p>
         </div>
       </main>

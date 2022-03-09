@@ -1,6 +1,7 @@
 import type { IFullPost, IPost, IPostPreview } from "../types/post";
 import { bodyToSummary } from "./body-to-summary";
 import { idToDate } from "./id-to-date";
+import { calculateReadTime } from "./read-time";
 import { slugify } from "./slugify";
 
 const POSTS_API = "https://jsonplaceholder.typicode.com/posts";
@@ -20,6 +21,7 @@ export const getAllPostsForHomePage = async (): Promise<IPostPreview[]> => {
     slug: slugify(post.title),
     date: idToDate(post.id),
     summary: bodyToSummary(post.body),
+    readTime: calculateReadTime(post.body),
   }));
 };
 
@@ -33,5 +35,6 @@ export const getAllPostsForPostPage = async (): Promise<IFullPost[]> => {
     slug: slugify(post.title),
     date: idToDate(post.id),
     summary: bodyToSummary(post.body),
+    readTime: calculateReadTime(post.body),
   }));
 };
