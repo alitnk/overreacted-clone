@@ -1,6 +1,7 @@
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { DarkModeToggle } from "../components/DarkModeToggle/DarkModeToggle";
 import { DefaultLayout } from "../components/DefaultLayout/DefaultLayout";
 import { PostPreview } from "../components/PostPreview/PostPreview";
@@ -25,7 +26,9 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
 
       <main className="">
         <div className="flex justify-between items-center">
-          <h1 className="font-black text-4xl">Overreacted</h1>
+          <h1 className="font-black text-4xl">
+            <Link href="/">Overreacted</Link>
+          </h1>
           <DarkModeToggle />
         </div>
         <div className="flex items-center space-x-4 mt-10">
