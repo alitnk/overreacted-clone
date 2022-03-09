@@ -12,7 +12,7 @@ const POSTS_API = "https://jsonplaceholder.typicode.com/posts";
 export const getAllPosts = async () => {
   const response = await fetch(POSTS_API);
   const posts = (await response.json()) as IPost[];
-  return posts;
+  return posts.sort((a, b) => b.id - a.id);
 };
 
 /**
