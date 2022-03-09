@@ -2,6 +2,7 @@ import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { DarkModeToggle } from "../components/DarkModeToggle/DarkModeToggle";
+import { DefaultLayout } from "../components/DefaultLayout/DefaultLayout";
 import { PostPreview } from "../components/PostPreview/PostPreview";
 import { getAllPostsForHomePage } from "../lib/post-fetcher";
 import type { IPostPreview } from "../types/post";
@@ -12,9 +13,9 @@ export interface HomePageProps {
 
 const Home: NextPage<HomePageProps> = ({ posts }) => {
   return (
-    <div className="max-w-xl mx-auto my-12">
+    <DefaultLayout>
       <Head>
-        <title>Overreacted</title>
+        <title>Overreacted — A blog by Dan Abramov</title>
         <meta
           name="description"
           content="A clone of Dan Abramov's blog, Overreacted.io"
@@ -39,14 +40,14 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
             Personal blog by{" "}
             <a
               href="https://mobile.twitter.com/dan_abramov"
-              className="text-pink-400 underline"
+              className="text-pink-weak underline"
             >
               Dan Abramov.
             </a>{" "}
             I explain with words and code.
           </p>
         </div>
-        <div className="space-y-12 mt-16">
+        <div className="space-y-12 mt-20">
           {posts.map((post) => (
             <PostPreview key={post.id} post={post} />
           ))}
@@ -58,21 +59,21 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
           <div>
             <a
               href="https://mobile.twitter.com/dan_abramov"
-              className="text-pink-400 underline"
+              className="text-pink-weak underline"
             >
               twitter
             </a>{" "}
             •{" "}
             <a
               href="https://github.com/gaearon"
-              className="text-pink-400 underline"
+              className="text-pink-weak underline"
             >
               github
             </a>{" "}
             •{" "}
             <a
               href="https://stackoverflow.com/users/458193/dan-abramov"
-              className="text-pink-400 underline"
+              className="text-pink-weak underline"
             >
               stack overflow
             </a>
@@ -80,14 +81,14 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
           <div>
             <a
               href="https://overreacted.io/rss.xml"
-              className="text-pink-400 underline"
+              className="text-pink-weak underline"
             >
               rss
             </a>
           </div>
         </div>
       </footer>
-    </div>
+    </DefaultLayout>
   );
 };
 

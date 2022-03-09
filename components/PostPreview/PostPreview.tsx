@@ -8,7 +8,7 @@ export interface PostPreviewProps {
 export const PostPreview = ({ post }: PostPreviewProps) => {
   return (
     <div>
-      <h2 className="text-3xl font-black text-pink-500">
+      <h2 className="text-3xl font-black text-pink-strong dark:text-pink-weak">
         <Link href={`/${post.slug}`}>{post.title}</Link>
       </h2>
       <div className="mt-2">

@@ -2,6 +2,7 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { DarkModeToggle } from "../components/DarkModeToggle/DarkModeToggle";
+import { DefaultLayout } from "../components/DefaultLayout/DefaultLayout";
 import { getAllPostsForPostPage } from "../lib/post-fetcher";
 import type { IFullPost } from "../types/post";
 
@@ -11,16 +12,16 @@ export interface PostPageProps {
 
 const PostPage: NextPage<PostPageProps> = ({ post }) => {
   return (
-    <div>
+    <DefaultLayout>
       <Head>
         <title>{post.title}</title>
         <meta name="description" content={post.summary} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="max-w-xl mx-auto mt-12">
+      <main>
         <div className="flex justify-between items-center">
-          <h1 className="font-black text-2xl text-pink-200">
+          <h1 className="font-black text-2xl text-pink-weak">
             <Link href="/">Overreacted</Link>
           </h1>
           <DarkModeToggle />
@@ -37,7 +38,7 @@ const PostPage: NextPage<PostPageProps> = ({ post }) => {
           <p className="mt-8">{post.body}</p>
         </div>
       </main>
-    </div>
+    </DefaultLayout>
   );
 };
 
