@@ -31,7 +31,8 @@ const PostPage: NextPage<PostPageProps> = ({ post }) => {
           <h1 className="text-5xl font-black">{post.title}</h1>
           <div className="mt-4">
             <small className="block text-xs">
-              {post.date} • {Array(post.readTime.degree).fill("☕️").join("")}{" "}
+              {post.formattedDate} •{" "}
+              {Array(post.readTime.degree).fill("☕️").join("")}{" "}
               {post.readTime.mins} min read
             </small>
           </div>

@@ -1,6 +1,6 @@
 import type { IFullPost, IPost, IPostPreview } from "../types/post";
 import { bodyToSummary } from "./body-to-summary";
-import { idToDate } from "./id-to-date";
+import { formatDate, idToDate } from "./id-to-date";
 import { calculateReadTime } from "./read-time";
 import { slugify } from "./slugify";
 
@@ -19,7 +19,8 @@ export const getAllPostsForHomePage = async (): Promise<IPostPreview[]> => {
     title: post.title,
     userId: post.userId,
     slug: slugify(post.title),
-    date: idToDate(post.id),
+    date: idToDate(post.id).toString(),
+    formattedDate: formatDate(idToDate(post.id)),
     summary: bodyToSummary(post.body),
     readTime: calculateReadTime(post.body),
   }));
@@ -33,7 +34,8 @@ export const getAllPostsForPostPage = async (): Promise<IFullPost[]> => {
     title: post.title,
     userId: post.userId,
     slug: slugify(post.title),
-    date: idToDate(post.id),
+    date: idToDate(post.id).toString(),
+    formattedDate: formatDate(idToDate(post.id)),
     summary: bodyToSummary(post.body),
     readTime: calculateReadTime(post.body),
   }));

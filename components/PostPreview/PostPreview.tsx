@@ -13,7 +13,8 @@ export const PostPreview = ({ post }: PostPreviewProps) => {
       </h2>
       <div className="mt-2">
         <small className="text-xs">
-          {post.date} • {Array(post.readTime.degree).fill("☕️").join("")}{" "}
+          {post.formattedDate} •{" "}
+          {Array(post.readTime.degree).fill("☕️").join("")}{" "}
           {post.readTime.mins} min read
         </small>
       </div>

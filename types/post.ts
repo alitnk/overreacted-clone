@@ -10,6 +10,7 @@ export interface IPost {
 export interface IFullPost extends IPost {
   slug: string;
   date: string; // can't use Date since the value gets serialized
+  formattedDate: string;
   readTime: IReadTime;
   summary: string;
 }
