@@ -3,10 +3,10 @@ import classNames from "classnames";
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  setDarkModeAction,
-  toggleAction,
-} from "../../state/reducers/dark-mode.reducer";
-import { RootState } from "../../state/store";
+  setDarkMode,
+  toggleDarkMode,
+} from "../../redux/slices/dark-mode.slice";
+import { RootState } from "../../redux/store";
 import { Moon } from "./Moon";
 import { Sun } from "./Sun";
 
@@ -17,13 +17,13 @@ export const DarkModeToggle = () => {
   const dispatch = useDispatch();
 
   const toggle = useCallback(() => {
-    dispatch(toggleAction());
+    dispatch(toggleDarkMode());
   }, [dispatch]);
 
   useEffect(() => {
     const darkMode =
       localStorage.getItem(DARK_MODE_LOCAL_STORAGE_KEY) === "true";
-    if (darkMode) dispatch(setDarkModeAction(true));
+    if (darkMode) dispatch(setDarkMode(true));
   }, [dispatch]);
 
   useEffect(() => {
