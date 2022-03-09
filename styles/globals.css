@@ -4,6 +4,6 @@
 
 @layer components {
   .base-container {
-    @apply dark:bg-[#282c35] bg-white text-[#222] dark:text-white/80 transition-colors;
+    @apply dark:bg-[#282c35] bg-white text-[#222] dark:text-white transition-colors underline-offset-2;
   }
 }

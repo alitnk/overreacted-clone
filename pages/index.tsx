@@ -32,19 +32,19 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
           <Image
             src="/profile-pic.jpg"
             alt="Dan Abramov's Profile Picture"
-            width={64}
-            height={64}
+            width={56}
+            height={56}
             className="rounded-full"
           />
-          <p className="text-lg max-w-[270px]">
+          <p className="font-serif text-xl max-w-[260px]">
             Personal blog by{" "}
             <a
               href="https://mobile.twitter.com/dan_abramov"
-              className="text-pink-weak underline"
+              className="text-pink-strong dark:text-pink-weak underline"
             >
-              Dan Abramov.
-            </a>{" "}
-            I explain with words and code.
+              Dan Abramov
+            </a>
+            . I explain with words and code.
           </p>
         </div>
         <div className="space-y-12 mt-20">

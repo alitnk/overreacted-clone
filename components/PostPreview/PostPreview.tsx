@@ -18,7 +18,7 @@ export const PostPreview = ({ post }: PostPreviewProps) => {
           {post.readTime.mins} min read
         </small>
       </div>
-      <p className="mt-1">{post.summary}</p>
+      <p className="font-serif text-xl mt-1">{post.summary}</p>
     </div>
   );
 };

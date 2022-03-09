@@ -36,7 +36,7 @@ const PostPage: NextPage<PostPageProps> = ({ post }) => {
               {post.readTime.mins} min read
             </small>
           </div>
-          <p className="mt-8">{post.body}</p>
+          <p className="font-serif mt-8">{post.body}</p>
         </div>
       </main>
     </DefaultLayout>
