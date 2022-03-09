@@ -11,33 +11,34 @@ yarn
 # or run `npm install`
 ```
 
-## Running on Development Mode
-
-Run:
-
-```sh
-yarn dev
-# or run `npm run dev`
-```
-
-and visit the application on localhost:3000
-
 ## Building The Project
 
-This project uses the SSG features of Next.js, to see the performance of SSG in action you should first build the project.
-
-Run:
+The application makes use of SSG (Static Site Generation) features of Next.js, to see the performance impact of SSG in action, you should first build the project using:
 
 ```sh
 yarn build
 # or run `npm run build`
 ```
 
-Then, run:
+Note that this might take a while since Next.js should make a few calls to the posts API and generate all the static pages.
+
+After the build is completed, run:
 
 ```sh
 yarn start
 # or run `npm run start`
 ```
 
-and visit the application on localhost:3000
+and visit the application on http://localhost:3000
+
+
+## Running on Development Mode
+
+If you want to run the application on development mode, run:
+
+```sh
+yarn dev
+# or run `npm run dev`
+```
+
+and visit the application on http://localhost:3000
