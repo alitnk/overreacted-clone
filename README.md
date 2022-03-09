@@ -1,6 +1,6 @@
 # overreacted.io clone
 
-This project is a clone of overreacted.io, created using Next.js, TypeScript and Redux (+ Redux Toolkit)
+This project is a clone of [overreacted.io](https://overreacted.io/), created using Next.js, TypeScript, Tailwind CSS and Redux (+Redux Toolkit)
 
 ## Dependencies
 
